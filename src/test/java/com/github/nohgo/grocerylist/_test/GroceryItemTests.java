@@ -1,10 +1,10 @@
-package com.github.nohgo.grocerylist;
+package com.github.nohgo.grocerylist._test;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GroceryListApplicationTests {
+class GroceryItemTests {
 
     @Test
     void contextLoads() {
