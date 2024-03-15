@@ -31,9 +31,12 @@ public class UserController {
     }
     @GetMapping("/login")
     public ResponseEntity<String> login(@RequestBody AuthUser user){
-    if (!passwordEncoder.matches(user.getPassword(), authUserRepository.findByUsername(user.getUsername()).getPassword())){
+        if (authUserRepository.findByUsername(user.getUsername()) == null){
             return ResponseEntity.badRequest().body("Incorrect details provided");
         }
+        if (!passwordEncoder.matches(user.getPassword(), authUserRepository.findByUsername(user.getUsername()).getPassword())){
+            return ResponseEntity.badRequest().body("Incorrect details provided");
+            }
 
         return ResponseEntity.ok("User logged in successfully");
     }
