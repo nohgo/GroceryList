@@ -1,9 +1,13 @@
 package com.github.nohgo.grocerylist.models;
 
+import lombok.Builder;
+import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.annotation.Id;
 
-@Document("groceryitems")
+@Data
+@Builder
+@Document(collection = "grocery-item")
 public class GroceryItem {
 
     @Id
@@ -12,12 +16,8 @@ public class GroceryItem {
     private int quantity;
     private String category;
 
-    public GroceryItem(String id, String name, int quantity, String category) {
-        super();
-        this.id = id;
-        this.name = name;
-        this.quantity = quantity;
-        this.category = category;
+    @Override
+    public String toString() {
+        return "GroceryItem [id=" + id + ", name=" + name + ", quantity=" + quantity + ", category=" + category + "]";
     }
-
 }
