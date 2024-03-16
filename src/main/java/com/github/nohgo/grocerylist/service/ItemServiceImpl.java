@@ -13,19 +13,18 @@ public class ItemServiceImpl implements ItemService {
     @Autowired
     private ItemRepository itemRepository;
     @Override
-    public String save(GroceryItem item) {
+    public List<GroceryItem> getItemsFromIds(List<String> ids) {
+        return itemRepository.findAllItems(ids);
+    }
+    @Override
+    public String addItem(GroceryItem item) {
         return itemRepository.save(item).getId();
     }
+
     @Override
-    public List<GroceryItem> getItemsFromName(String name) {
-        return itemRepository.findByName(name);
-    }
-    @Override
-    public void delete(String id) {
+    public void deleteItem(String id) {
         itemRepository.deleteById(id);
     }
-    @Override
-    public List<GroceryItem> getByCategory(String category) {
-        return itemRepository.findByCategory(category);
-    }
+
+
 }

@@ -18,4 +18,8 @@ public class GroceryItem {
     private String name;
     private int quantity;
     private String category;
+
+    public String toString() {
+        return "GroceryItem(id=" + this.getId() + ", name=" + this.getName() + ", quantity=" + this.getQuantity() + ", category=" + this.getCategory() + ")";
+    }
 }
