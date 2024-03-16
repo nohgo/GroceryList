@@ -11,7 +11,9 @@ import com.github.nohgo.grocerylist.repository.RoleRepository;
 import com.github.nohgo.grocerylist.repository.UserRepository;
 import com.github.nohgo.grocerylist.security.jwt.JwtUtils;
 import com.github.nohgo.grocerylist.security.services.UserDetailsImpl;
+
 import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -86,7 +88,6 @@ public class AuthController {
 
         Set<String> strRoles = signupRequest.getRole();
         Set<Role> roles = new HashSet<>();
-        System.out.println(signupRequest.getRole());
 
         if (strRoles == null) {
             Role userRole = roleRepository.findByName(ERole.ROLE_USER)
