@@ -1,7 +1,7 @@
 package com.github.nohgo.grocerylist.security.controller;
 
-import com.github.nohgo.grocerylist.models.ERole;
-import com.github.nohgo.grocerylist.models.Role;
+import com.github.nohgo.grocerylist.security.models.ERole;
+import com.github.nohgo.grocerylist.security.models.Role;
 import com.github.nohgo.grocerylist.models.User;
 import com.github.nohgo.grocerylist.payload.request.LoginRequest;
 import com.github.nohgo.grocerylist.payload.request.SignupRequest;
