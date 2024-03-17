@@ -1,5 +1,6 @@
 package com.github.nohgo.grocerylist.models;
 
+import com.github.nohgo.grocerylist.security.models.Role;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

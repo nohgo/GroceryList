@@ -1,4 +1,4 @@
-package com.github.nohgo.grocerylist.models;
+package com.github.nohgo.grocerylist.security.models;
 
 public enum ERole {
     ROLE_USER,
