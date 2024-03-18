@@ -56,5 +56,7 @@ public class User {
     public void removeItem(String id){
         items.remove(id);
     }
-
+    public boolean hasItem(String id){
+        return items.contains(id);
+    }
 }

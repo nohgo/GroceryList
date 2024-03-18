@@ -1,4 +1,4 @@
-package com.github.nohgo.grocerylist.payload.response;
+package com.github.nohgo.grocerylist.security.payload.response;
 
 import lombok.Getter;
 import lombok.Setter;

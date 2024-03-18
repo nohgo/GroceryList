@@ -1,4 +1,4 @@
-package com.github.nohgo.grocerylist.payload.request;
+package com.github.nohgo.grocerylist.security.payload.request;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;

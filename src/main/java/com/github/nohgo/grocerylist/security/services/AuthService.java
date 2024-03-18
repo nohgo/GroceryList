@@ -1,24 +1,23 @@
-package com.github.nohgo.grocerylist.service;
+package com.github.nohgo.grocerylist.security.services;
 
 import com.github.nohgo.grocerylist.models.User;
 import com.github.nohgo.grocerylist.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl implements UserService{
-
+public class AuthService {
 
     @Autowired
     private UserRepository userRepository;
 
-    public User getByUsername(String username) throws UsernameNotFoundException{
+    public User getAuthenticatedUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = (String) authentication.getPrincipal();
         return userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + username));
     }
-    public void save(User user){
-        userRepository.save(user);
-    }
-
 }
