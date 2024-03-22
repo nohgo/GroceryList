@@ -22,4 +22,7 @@ public class GroceryItem {
     public String toString() {
         return "GroceryItem(id=" + this.getId() + ", name=" + this.getName() + ", quantity=" + this.getQuantity() + ", category=" + this.getCategory() + ")";
     }
+    public boolean isNull() {
+        return this.getId() == null || this.getName() == null || this.getQuantity() == 0 || this.getCategory() == null;
+    }
 }

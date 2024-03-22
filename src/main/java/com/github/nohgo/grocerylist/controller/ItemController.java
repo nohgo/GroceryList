@@ -29,16 +29,17 @@ public class ItemController {
         return itemService.getItemsFromIds(user.getItems());
     }
     @PostMapping("/addItem")
-    public ResponseEntity<?> addItem(@RequestBody GroceryItem item){
+    public ResponseEntity<?> addItem(@RequestBody(required = false) GroceryItem item){
 
-        if (item != null) {
-            User user = authService.getAuthenticatedUser();
-            user.addItem(itemService.addItem(item));
-            userService.save(user);
-
-            return ResponseEntity.ok("Item added successfully");
+        if (item == null || item.isNull()) {
+            return ResponseEntity.badRequest().body("Item cannot be null");
         }
-        return ResponseEntity.badRequest().body("Item cannot be null");
+
+        User user = authService.getAuthenticatedUser();
+        user.addItem(itemService.addItem(item));
+        userService.save(user);
+
+        return ResponseEntity.ok("Item added successfully");
     }
     @DeleteMapping("/deleteItem")
     public ResponseEntity<?> deleteItem(@RequestParam String id){
