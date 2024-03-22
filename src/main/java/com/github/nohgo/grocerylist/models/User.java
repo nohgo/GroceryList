@@ -59,4 +59,7 @@ public class User {
     public boolean hasItem(String id){
         return items.contains(id);
     }
+    public void deleteAllItems(){
+        items.clear();
+    }
 }
